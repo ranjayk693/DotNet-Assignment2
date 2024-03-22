@@ -54,7 +54,7 @@ namespace Assignment2.Controllers
             return Ok(data);
         }
 
-        [HttpDelete("{key}")]
+        [HttpDelete("EmployeeDelete")]
         public async Task<ActionResult> DeleteData(Guid id)
         {
             var data = await _dataContext.Employees.FirstOrDefaultAsync(elem => elem.Id == id);
@@ -129,7 +129,7 @@ namespace Assignment2.Controllers
             return Ok(newDAta);
         }
 
-        [HttpDelete("Department{key}")]
+        [HttpDelete("Department")]
         public async Task<ActionResult> DeleteDepartment(Guid id)
         {
             var data = await _dataContext.Departments.FirstOrDefaultAsync(elem => elem.Id == id);
