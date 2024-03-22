@@ -54,6 +54,19 @@ namespace Assignment2.Controllers
             return Ok(data);
         }
 
+        [HttpDelete("{key}")]
+        public async Task<ActionResult> DeleteData(Guid id)
+        {
+            var data = await _dataContext.Employees.FirstOrDefaultAsync(elem => elem.Id == id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            _dataContext.Employees.Remove(data);
+            await _dataContext.SaveChangesAsync();
+            return NoContent();
+        }
+
         [HttpGet("Departement{id}")]
         public async Task<ActionResult<DepartmentDtos>> GetDepartmentById(Guid id)
         {
@@ -98,6 +111,8 @@ namespace Assignment2.Controllers
             return  Ok(newDAta);
         }
 
+       
+
         /*Employee for adding new Departement*/
         [HttpPost("Department")]
         public async Task<ActionResult<CreateDepartmentDto>> PostDepartement(CreateDepartmentDto data)
@@ -112,6 +127,19 @@ namespace Assignment2.Controllers
             _dataContext.Departments.Add(newDAta);
             await _dataContext.SaveChangesAsync();
             return Ok(newDAta);
+        }
+
+        [HttpDelete("Department{key}")]
+        public async Task<ActionResult> DeleteDepartment(Guid id)
+        {
+            var data = await _dataContext.Departments.FirstOrDefaultAsync(elem => elem.Id == id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            _dataContext.Departments.Remove(data);
+            await _dataContext.SaveChangesAsync();
+            return NoContent();
         }
 
     }
