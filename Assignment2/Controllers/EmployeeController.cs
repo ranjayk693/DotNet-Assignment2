@@ -1,35 +1,7 @@
-﻿//using Assignment2.Data;
-//using Assignment2.Models;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
-
-//namespace Assignment2.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class EmployeeController : ControllerBase
-//    {
-//        private readonly DataContext _dataContext;
-//        public EmployeeController(DataContext dataContext) { 
-//            _dataContext = dataContext; 
-//        }
-
-//        public async Task<ActionResult<List<Employee>>> Get()
-//        {
-//            var data=await _dataContext.Employees.ToListAsync();
-//            return Ok(data);
-//        }
-//    }
-//}
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿
 using Assignment2.Data;
 using Assignment2.Dtos;
 using Assignment2.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
